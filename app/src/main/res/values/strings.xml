@@ -3,9 +3,8 @@
 
     <!--    Activity Titles-->
     <string name="calendar_activity_title">가계부</string>
-    <string name="add_fund_activity_title1">지출</string>
-    <string name="add_fund_activity_title2">수입</string>
-
+    <string name="add_fund_activity_expense">지출</string>
+    <string name="add_fund_activity_income">수입</string>
 
 
     <!--    Navigation Bar Strings-->

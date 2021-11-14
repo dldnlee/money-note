@@ -12,6 +12,10 @@ import android.widget.CalendarView;
 import com.example.moneynote.databinding.ActivityCalendarBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 public class CalendarActivity extends AppCompatActivity {
     private ActivityCalendarBinding binding;
     private String selectedDate;
@@ -21,6 +25,10 @@ public class CalendarActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityCalendarBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+
+        String date = new SimpleDateFormat("yyyy년MM월dd일", Locale.getDefault()).format(new Date());
+        binding.subheading.setText(date);
 
 //        Calendar
         binding.calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
