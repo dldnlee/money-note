@@ -1,4 +1,4 @@
-package com.example.monetnote;
+package com.example.moneynote;
 
 import android.content.Context;
 

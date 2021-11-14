@@ -1,4 +1,4 @@
-package com.example.monetnote;
+package com.example.moneynote;
 
 import org.junit.Test;
 

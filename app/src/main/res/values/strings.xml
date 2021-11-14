@@ -1,3 +1,17 @@
 <resources>
-    <string name="app_name">Monet Note</string>
+    <string name="app_name">MoneyNote</string>
+
+    <!--    Activity Titles-->
+    <string name="calendar_activity_title">가계부</string>
+    <string name="add_fund_activity_title1">지출</string>
+    <string name="add_fund_activity_title2">수입</string>
+
+
+
+    <!--    Navigation Bar Strings-->
+    <string name="home_nav">Home</string>
+    <string name="calendar_nav">Calendar</string>
+    <string name="graph_nav">Graph</string>
+    <string name="settings_nav">Settings</string>
+
 </resources>

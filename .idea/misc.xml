@@ -3,6 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/havyd/AndroidStudioProjects/MoneyNote/app/src/main/res/drawable/roundbutton.xml" value="0.3828125" />
+        <entry key="..\:/Users/havyd/AndroidStudioProjects/MoneyNote/app/src/main/res/drawable/roundedbutton.xml" value="0.3828125" />
+        <entry key="..\:/Users/havyd/AndroidStudioProjects/MoneyNote/app/src/main/res/layout/activity_add_fund.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/havyd/AndroidStudioProjects/MoneyNote/app/src/main/res/layout/activity_calendar.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/havyd/AndroidStudioProjects/MoneyNote/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/havyd/AndroidStudioProjects/MoneyNote/app/src/main/res/menu/navigation_items.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/inyou/AndroidStudioProjects/MonetNote/app/src/main/res/layout/activity_main.xml" value="0.264" />
       </map>
     </option>
