@@ -77,8 +77,8 @@
 
     <ImageButton
         android:id="@+id/button_calendar"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_marginTop="60dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/button_graph"
@@ -86,12 +86,44 @@
 
     <ImageButton
         android:id="@+id/button_graph"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_marginTop="60dp"
         app:layout_constraintStart_toEndOf="@+id/button_calendar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_result"/>
+<!--    <ImageButton-->
+<!--        android:id="@+id/menu_home"-->
+<!--        android:layout_width="70dp"-->
+<!--        android:layout_height="70dp"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toStartOf="@+id/menu_calendar"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"/>-->
+<!--    <ImageButton-->
+<!--        android:id="@+id/menu_calendar"-->
+<!--        android:layout_width="70dp"-->
+<!--        android:layout_height="70dp"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/menu_home"-->
+<!--        app:layout_constraintEnd_toStartOf="@+id/menu_graph"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"/>-->
+<!--    <ImageButton-->
+<!--        android:id="@+id/menu_graph"-->
+<!--        android:layout_width="70dp"-->
+<!--        android:layout_height="70dp"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/menu_calendar"-->
+<!--        app:layout_constraintEnd_toStartOf="@+id/menu_setting"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"/>-->
+<!--    <ImageButton-->
+<!--        android:id="@+id/menu_setting"-->
+<!--        android:layout_width="70dp"-->
+<!--        android:layout_height="70dp"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/menu_graph"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"/>-->
+
+
+
+
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/nav_bar"

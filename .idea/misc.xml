@@ -3,11 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+<<<<<<< HEAD
         <entry key="..\:/Users/havyd/AndroidStudioProjects/MoneyNote/app/src/main/res/layout/activity_add_fund.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/havyd/AndroidStudioProjects/MoneyNote/app/src/main/res/layout/activity_calendar.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/havyd/AndroidStudioProjects/MoneyNote/app/src/main/res/layout/activity_main.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/havyd/AndroidStudioProjects/MoneyNote/app/src/main/res/layout/fragment_expense.xml" value="0.22" />
         <entry key="..\:/Users/havyd/AndroidStudioProjects/MoneyNote/app/src/main/res/layout/fragment_income.xml" value="0.22" />
+=======
+        <entry key="..\:/Users/inyou/AndroidStudioProjects/MonetNote/app/src/main/res/layout/activity_graph.xml" value="0.2" />
+        <entry key="..\:/Users/inyou/AndroidStudioProjects/MonetNote/app/src/main/res/layout/activity_main.xml" value="0.264" />
+>>>>>>> fb75038 (커밋)
       </map>
     </option>
   </component>
