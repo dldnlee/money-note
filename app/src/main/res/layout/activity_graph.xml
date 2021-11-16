@@ -18,45 +18,47 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-    <Button
-        android:id="@+id/button_expense"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="지출"
-        android:textSize="30dp"
-        android:textColor="@color/Python"
-        app:layout_constraintTop_toBottomOf="@+id/title"
+    <View
+        android:id="@+id/content_divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        app:layout_constraintTop_toBottomOf="@id/expense_option"
+        android:layout_marginTop="10dp"
+        android:background="#A8A8A8"/>
+
+    <View
+        android:id="@+id/button_divider"
+        android:layout_width="1dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button_income"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        android:background="#A8A8A8" />
     <Button
-        android:id="@+id/button_income"
-        android:layout_width="wrap_content"
+        android:id="@+id/expense_option"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="수입"
-        android:textSize="30dp"
-        android:textColor="@color/Python"
-        app:layout_constraintTop_toBottomOf="@+id/title"
-        app:layout_constraintStart_toEndOf="@+id/button_expense"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        android:backgroundTint="@color/white"
+        android:text="@string/add_fund_activity_expense"
+        android:textColor="@color/teal_200"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/button_divider"
+        app:layout_constraintEnd_toStartOf="@id/button_divider"
+        android:stateListAnimator="@null" />
 
-<!--    <androidx.cardview.widget.CardView-->
-<!--        android:id="@+id/cardViewGraph"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="200dp"-->
-<!--        android:layout_marginLeft="20dp"-->
-<!--        android:layout_marginRight="20dp"-->
-<!--        android:layout_marginTop="15dp"-->
-<!--        android:elevation="10dp"-->
-<!--        app:cardCornerRadius="10dp"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/button_expense"/>-->
+    <Button
+        android:id="@+id/income_option"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        android:text="@string/add_fund_activity_income"
+        android:textColor="#BDBDBD"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/button_divider"
+        app:layout_constraintStart_toEndOf="@id/button_divider"
+        android:stateListAnimator="@null" />
 
-    <!--Linear layout to display pie chart -->
-    <!-- and details of pie chart-->
-<!--    <LinearLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:orientation="horizontal"-->
-<!--        android:weightSum="2"/>-->
 
     <!--Pie chart to display the data-->
     <org.eazegraph.lib.charts.PieChart
@@ -69,110 +71,12 @@
         android:layout_marginTop="15dp"
         android:layout_marginLeft="15dp"
         android:layout_marginBottom="15dp"
-        app:layout_constraintTop_toBottomOf="@+id/button_income"
+        app:layout_constraintTop_toBottomOf="@+id/button_divider"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
     <!--Creating another linear layout -->
     <!-- to display pie chart details -->
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:layout_marginLeft="20dp"
-        android:orientation="vertical"
-        android:gravity="center_vertical"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="15dp"
-            android:layout_gravity="center_vertical"/>
-
-            <!--View to display the yellow color icon-->
-            <View
-                android:layout_width="15dp"
-                android:layout_height="match_parent"
-                android:background="@color/R"/>
-
-            <!--Text view to display R -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="R"
-                android:paddingLeft="10dp"/>
-
-        </LinearLayout>
-
-<!--        Linear layout to display Python-->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="15dp"
-            android:layout_gravity="center_vertical"
-            android:layout_marginTop="5dp"/>
-
-            <!--View to display the green color icon-->
-            <View
-                android:layout_width="15dp"
-                android:layout_height="match_parent"
-                android:background="@color/Python"/>
-
-            <!--Text view to display python text -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Python"
-                android:paddingLeft="10dp"/>
-
-        </LinearLayout>
-
-        <!--Linear layout to display C++-->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="15dp"
-            android:layout_gravity="center_vertical"
-            android:layout_marginTop="5dp"/>
-
-            <!--View to display the red color icon-->
-            <View
-                android:layout_width="15dp"
-                android:layout_height="match_parent"
-                android:background="@color/CPP"/>
-
-            <!--Text view to display C++ text -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="C++"
-                android:paddingLeft="10dp"/>
-
-        </LinearLayout>
-
-        <!--Linear layout to display Java-->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="15dp"
-            android:layout_gravity="center_vertical"
-            android:layout_marginTop="5dp">
-
-            <!--View to display the blue color icon-->
-            <View
-                android:layout_width="15dp"
-                android:layout_height="match_parent"
-                android:background="@color/Java"/>
-
-            <!--Text view to display Java text -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Java"
-                android:paddingLeft="10dp"/>
-
-        </LinearLayout>
-
-    </LinearLayout>
-
-</LinearLayout>
-
-    </androidx.cardview.widget.CardView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
