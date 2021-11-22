@@ -6,121 +6,102 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/text_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:textSize="30dp"
-        android:text="Money Note"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
-
-    <TextView
-        android:id="@+id/text_income"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:layout_marginStart="35dp"
-        android:textSize="25dp"
-        android:text="이번 달의 수입"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_title"/>
-
-    <TextView
-        android:id="@+id/income"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="35dp"
-        android:textColor="#F30606"
-        android:textSize="30dp"
-        android:text="+0원"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_income"/>
-
-    <TextView
-        android:id="@+id/text_expense"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:layout_marginStart="35dp"
-        android:textSize="25dp"
-        android:text="이번 달의 지출"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/income"/>
-
-    <TextView
-        android:id="@+id/expense"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="35dp"
-        android:textColor="#C11740D3"
-        android:textSize="30dp"
-        android:text="-0원"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_expense"/>
-
-    <TextView
-        android:id="@+id/text_result"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:textSize="50dp"
-        android:text="적자"
-        android:visibility="invisible"
-        app:layout_constraintTop_toBottomOf="@+id/expense"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
-    <ImageButton
-        android:id="@+id/button_calendar"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="60dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button_graph"
-        app:layout_constraintTop_toBottomOf="@+id/text_result"/>
-
-    <ImageButton
-        android:id="@+id/button_graph"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="60dp"
-        app:layout_constraintStart_toEndOf="@+id/button_calendar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_result"/>
-<!--    <ImageButton-->
-<!--        android:id="@+id/menu_home"-->
-<!--        android:layout_width="70dp"-->
-<!--        android:layout_height="70dp"-->
+<!--    <TextView-->
+<!--        android:id="@+id/text_title"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="30dp"-->
+<!--        android:textSize="30dp"-->
+<!--        android:text="Money Note"-->
 <!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintEnd_toStartOf="@+id/menu_calendar"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"/>-->
-<!--    <ImageButton-->
-<!--        android:id="@+id/menu_calendar"-->
-<!--        android:layout_width="70dp"-->
-<!--        android:layout_height="70dp"-->
-<!--        app:layout_constraintStart_toEndOf="@+id/menu_home"-->
-<!--        app:layout_constraintEnd_toStartOf="@+id/menu_graph"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"/>-->
-<!--    <ImageButton-->
-<!--        android:id="@+id/menu_graph"-->
-<!--        android:layout_width="70dp"-->
-<!--        android:layout_height="70dp"-->
-<!--        app:layout_constraintStart_toEndOf="@+id/menu_calendar"-->
-<!--        app:layout_constraintEnd_toStartOf="@+id/menu_setting"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"/>-->
-<!--    <ImageButton-->
-<!--        android:id="@+id/menu_setting"-->
-<!--        android:layout_width="70dp"-->
-<!--        android:layout_height="70dp"-->
-<!--        app:layout_constraintStart_toEndOf="@+id/menu_graph"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"/>-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/text_income"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="50dp"-->
+<!--        android:layout_marginStart="35dp"-->
+<!--        android:textSize="25dp"-->
+<!--        android:text="이번 달의 수입"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/text_title"/>-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/income"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:layout_marginStart="35dp"-->
+<!--        android:textColor="#F30606"-->
+<!--        android:textSize="30dp"-->
+<!--        android:text="+0원"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/text_income"/>-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/text_expense"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="40dp"-->
+<!--        android:layout_marginStart="35dp"-->
+<!--        android:textSize="25dp"-->
+<!--        android:text="이번 달의 지출"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/income"/>-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/expense"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:layout_marginStart="35dp"-->
+<!--        android:textColor="#C11740D3"-->
+<!--        android:textSize="30dp"-->
+<!--        android:text="-0원"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/text_expense"/>-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/text_result"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="50dp"-->
+<!--        android:textSize="50dp"-->
+<!--        android:text="적자"-->
+<!--        android:visibility="invisible"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/expense"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
 <!--        app:layout_constraintEnd_toEndOf="parent"/>-->
 
+<!--    <ImageButton-->
+<!--        android:id="@+id/button_calendar"-->
+<!--        android:layout_width="100dp"-->
+<!--        android:layout_height="100dp"-->
+<!--        android:layout_marginTop="60dp"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toStartOf="@+id/button_graph"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/text_result"/>-->
+
+<!--    <ImageButton-->
+<!--        android:id="@+id/button_graph"-->
+<!--        android:layout_width="100dp"-->
+<!--        android:layout_height="100dp"-->
+<!--        android:layout_marginTop="60dp"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/button_calendar"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/text_result"/>-->
+
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/nav_bar" />
 
 
 

@@ -8,6 +8,8 @@ import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 
 import com.example.moneynote.databinding.ActivityAddFundBinding;
+import com.example.moneynote.fragments.ExpenseFragment;
+import com.example.moneynote.fragments.IncomeFragment;
 
 public class AddFundActivity extends AppCompatActivity {
     private ActivityAddFundBinding binding;
@@ -32,7 +34,6 @@ public class AddFundActivity extends AppCompatActivity {
     }
 
     private void replaceFragment(Fragment fragment) {
-
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.fragment_container, fragment);

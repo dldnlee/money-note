@@ -12,5 +12,7 @@
     <string name="calendar_nav">Calendar</string>
     <string name="graph_nav">Graph</string>
     <string name="settings_nav">Settings</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

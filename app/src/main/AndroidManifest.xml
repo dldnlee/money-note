@@ -10,14 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MonetNote">
         <activity
-<<<<<<< HEAD
             android:name=".AddFundActivity"
-            android:exported="true" />
-        <activity
-            android:name=".CalendarActivity"
-=======
-            android:name=".GraphActivity"
->>>>>>> fb75038 (커밋)
             android:exported="true" />
         <activity
             android:name=".MainActivity"

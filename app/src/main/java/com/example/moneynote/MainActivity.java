@@ -2,13 +2,19 @@ package com.example.moneynote;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.moneynote.databinding.ActivityMainBinding;
+import com.example.moneynote.fragments.CalendarFragment;
+import com.example.moneynote.fragments.GraphFragment;
+import com.example.moneynote.fragments.HomeFragment;
+import com.example.moneynote.fragments.SettingsFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
@@ -20,30 +26,26 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        binding.buttonCalendar.setOnClickListener(v -> calendarActivity());
-
-        //        Bottom Navigation Bar
-        Menu menu = binding.navBar.getMenu();
-        MenuItem menuItem = menu.getItem(0);
-        menuItem.setChecked(true);
+        homeFragment();
 
         binding.navBar.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
                     case R.id.home:
+                        homeFragment();
                         break;
 
                     case R.id.calendar:
-                        calendarActivity();
+                        calendarFragment();
                         break;
 
                     case R.id.graph:
-                        graphActivity();
+                        graphFragment();
                         break;
 
                     case R.id.settings:
-                        settingsActivity();
+                        settingsFragment();
                         break;
                 }
 
@@ -53,20 +55,29 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void calendarActivity() {
-        Intent i = new Intent(this , CalendarActivity.class);
-        startActivity(i);
+
+    private void homeFragment() {
+        replaceFragment(new HomeFragment());
     }
 
-    private void graphActivity() {
-        Intent i = new Intent(this , CalendarActivity.class);
-        startActivity(i);
-
+    private void graphFragment() {
+        replaceFragment(new GraphFragment());
     }
 
-    private void settingsActivity() {
-        Intent i = new Intent(this , CalendarActivity.class);
-        startActivity(i);
+    private void settingsFragment() {
+        replaceFragment(new SettingsFragment());
     }
+
+    private void calendarFragment() {
+        replaceFragment(new CalendarFragment());
+    }
+
+    private void replaceFragment(Fragment fragment) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.fragment_container, fragment);
+        fragmentTransaction.commit();
+    }
+
 
 }
