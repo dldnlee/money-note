@@ -8,8 +8,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".AddFundActivity">
+        android:layout_height="match_parent">
 
         <!--    Date-->
         <TextView
@@ -113,11 +112,14 @@
             android:textSize="15sp"
             android:background="@drawable/roundedbutton" />
 
-        <FrameLayout
-            android:id="@+id/fragment_container"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="parent" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="test"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/save_button"
+            android:id="@+id/test_text" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

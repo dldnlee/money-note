@@ -20,6 +20,8 @@ public class AddFundActivity extends AppCompatActivity {
         binding = ActivityAddFundBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        replaceFragment(new ExpenseFragment());
+
 
 
         binding.expenseOption.setOnClickListener(v -> {
@@ -31,6 +33,8 @@ public class AddFundActivity extends AppCompatActivity {
             replaceFragment(new IncomeFragment());
             binding.title.setText(R.string.add_fund_activity_income);
         });
+
+
     }
 
     private void replaceFragment(Fragment fragment) {

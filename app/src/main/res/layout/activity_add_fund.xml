@@ -60,112 +60,16 @@
         app:layout_constraintStart_toEndOf="@id/button_divider"
         android:stateListAnimator="@null" />
 
-
-    <!--    Date-->
-    <TextView
-        android:id="@+id/date"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="날짜"
-        android:textSize="25sp"
-        android:textColor="#A8A8A8"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/content_divider"
-        app:layout_constraintEnd_toStartOf="@id/edit_date"
-        android:layout_marginTop="30dp"/>
-
-    <EditText
-        android:id="@+id/edit_date"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@id/date"
-        app:layout_constraintTop_toTopOf="@id/date"
-        app:layout_constraintBottom_toBottomOf="@id/date"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
-    <!--    Category-->
-    <TextView
-        android:id="@+id/category"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="분류"
-        android:textSize="25sp"
-        android:textColor="#A8A8A8"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/date"
-        app:layout_constraintEnd_toStartOf="@id/edit_date"
-        android:layout_marginTop="15dp"/>
-
-    <EditText
-        android:id="@+id/edit_category"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@id/category"
-        app:layout_constraintTop_toTopOf="@id/category"
-        app:layout_constraintBottom_toBottomOf="@id/category"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
-    <!--    Amount-->
-    <TextView
-        android:id="@+id/amount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="금액"
-        android:textSize="25sp"
-        android:textColor="#A8A8A8"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/category"
-        app:layout_constraintEnd_toStartOf="@id/edit_amount"
-        android:layout_marginTop="15dp"/>
-
-    <EditText
-        android:id="@+id/edit_amount"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@id/amount"
-        app:layout_constraintTop_toTopOf="@id/amount"
-        app:layout_constraintBottom_toBottomOf="@id/amount"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
-    <!--    Description-->
-    <TextView
-        android:id="@+id/desc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="내용"
-        android:textSize="25sp"
-        android:textColor="#A8A8A8"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/amount"
-        app:layout_constraintEnd_toStartOf="@id/edit_desc"
-        android:layout_marginTop="15dp"/>
-
-    <EditText
-        android:id="@+id/edit_desc"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@id/desc"
-        app:layout_constraintTop_toTopOf="@id/desc"
-        app:layout_constraintBottom_toBottomOf="@id/desc"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
-    <Button
-        android:layout_width="100dp"
-        android:layout_height="40dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/desc"
-        android:layout_marginTop="40dp"
-        android:text="저장"
-        android:textSize="15sp"
-        android:background="@drawable/roundedbutton" />
-
-    <FrameLayout
+    <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/content_divider"
         app:layout_constraintBottom_toBottomOf="parent" />
+
+
 
 
 
