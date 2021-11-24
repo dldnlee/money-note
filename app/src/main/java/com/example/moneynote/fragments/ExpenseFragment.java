@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.moneynote.AddFundActivity;
 import com.example.moneynote.databinding.FragmentExpenseBinding;
 import com.example.moneynote.databinding.FragmentHomeBinding;
 import com.example.moneynote.model.UserDataModel;
@@ -42,9 +43,10 @@ import java.util.List;
 public class ExpenseFragment extends Fragment {
     private FragmentExpenseBinding binding;
     private ArrayList<UserDataModel> array = new ArrayList<>();
-    private String userData;
     private final String saveFileName = "userdata.json";
-    private String test;
+    private String userData;
+    private String jsonData;
+
 
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -54,21 +56,22 @@ public class ExpenseFragment extends Fragment {
                              Bundle savedInstanceState) {
         binding = FragmentExpenseBinding.inflate(inflater, container, false);
 
+        AddFundActivity activity = (AddFundActivity) getActivity();
+        String selectedDate = activity.getData();
+
+        binding.editDate.setText(selectedDate);
+
         binding.saveButton.setOnClickListener(v -> {
             addData();
-            binding.testText.setText(userData);
+            getActivity().finish();
         });
-
-
-
 
         return binding.getRoot();
     }
 
-
     private void loadData(Context context, String fileName) {
         try {
-            this.test = MoneyNoteUtils.readFile(context, fileName);
+            this.jsonData = MoneyNoteUtils.readFile(context, fileName);
         } catch (IOException e){
 
         }
@@ -77,6 +80,7 @@ public class ExpenseFragment extends Fragment {
     private void addData() {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
+        String type = "Expense";
         String usrDate = binding.editDate.getText().toString();
         String usrCategory = binding.editCategory.getText().toString();
         int usrAmount = Integer.parseInt(binding.editAmount.getText().toString());
@@ -84,27 +88,15 @@ public class ExpenseFragment extends Fragment {
 
         loadData(getActivity(), saveFileName);
 
-        ArrayList<UserDataModel> anotherTest = gson.fromJson(this.test, new TypeToken<ArrayList<UserDataModel>>() {
+        ArrayList<UserDataModel> dataModelArrayList = gson.fromJson(this.jsonData, new TypeToken<ArrayList<UserDataModel>>() {
         }.getType());
 
-        UserDataModel data = new UserDataModel(usrDate, usrCategory, usrAmount, usrDescription);
-//        this.userData = gson.toJson(data);
+        UserDataModel data = new UserDataModel(type, usrDate, usrCategory, usrAmount, usrDescription);
 
-        anotherTest.add(data);
+        dataModelArrayList.add(data);
 
-        this.userData = gson.toJson(anotherTest);
-
-
-
-//        this.userData = gson.toJson(array);
-
+        this.userData = gson.toJson(dataModelArrayList);
 
         MoneyNoteUtils.writeFile(getActivity(), saveFileName, userData);
-
-//        MoneyNoteUtils.appendWriteFile(saveFileName, userData);
-
-
-
-        Toast.makeText(getActivity(),"Helo",Toast.LENGTH_SHORT).show();
     }
 }

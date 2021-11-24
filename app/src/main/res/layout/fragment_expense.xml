@@ -17,6 +17,7 @@
             android:layout_height="wrap_content"
             android:text="날짜"
             android:textSize="25sp"
+            android:enabled="false"
             android:textColor="#A8A8A8"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -112,14 +113,14 @@
             android:textSize="15sp"
             android:background="@drawable/roundedbutton" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="test"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/save_button"
-            android:id="@+id/test_text" />
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="test"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/save_button"-->
+<!--            android:id="@+id/test_text" />-->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

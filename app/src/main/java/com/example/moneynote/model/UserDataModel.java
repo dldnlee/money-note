@@ -5,8 +5,10 @@ public class UserDataModel {
     private String category;
     private int amount;
     private String description;
+    private String type;
 
-    public UserDataModel(String date, String category, int amount, String description) {
+    public UserDataModel(String type, String date, String category, int amount, String description) {
+        this.type = type;
         this.date = date;
         this.category = category;
         this.amount = amount;
@@ -43,5 +45,13 @@ public class UserDataModel {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }

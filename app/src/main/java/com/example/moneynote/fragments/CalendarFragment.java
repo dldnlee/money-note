@@ -25,6 +25,7 @@ import java.util.Locale;
 public class CalendarFragment extends Fragment {
     private FragmentCalendarBinding binding;
 
+
     @Override
     public View onCreateView(LayoutInflater inflater,
                              ViewGroup container,
@@ -54,6 +55,8 @@ public class CalendarFragment extends Fragment {
 
     private void addFundActivity() {
         Intent i = new Intent(getActivity(), AddFundActivity.class);
+        String selectedDate = binding.subheading.getText().toString();
+        i.putExtra("SELECTED_DATE", selectedDate);
         startActivity(i);
     }
 

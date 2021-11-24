@@ -13,6 +13,7 @@ import com.example.moneynote.fragments.IncomeFragment;
 
 public class AddFundActivity extends AppCompatActivity {
     private ActivityAddFundBinding binding;
+    private String selectedDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,21 +21,25 @@ public class AddFundActivity extends AppCompatActivity {
         binding = ActivityAddFundBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        Bundle extras = getIntent().getExtras();
+        if(extras != null) {
+            this.selectedDate = extras.getString("SELECTED_DATE");
+        }
+
+        expenseFragment();
+
+        binding.expenseOption.setOnClickListener(v -> expenseFragment());
+        binding.incomeOption.setOnClickListener(v -> incomeFragment());
+    }
+
+    private void expenseFragment() {
         replaceFragment(new ExpenseFragment());
+        binding.title.setText(R.string.add_fund_activity_expense);
+    }
 
-
-
-        binding.expenseOption.setOnClickListener(v -> {
-            replaceFragment(new ExpenseFragment());
-            binding.title.setText(R.string.add_fund_activity_expense);
-        });
-
-        binding.incomeOption.setOnClickListener(v -> {
-            replaceFragment(new IncomeFragment());
-            binding.title.setText(R.string.add_fund_activity_income);
-        });
-
-
+    private void incomeFragment() {
+        replaceFragment(new IncomeFragment());
+        binding.title.setText(R.string.add_fund_activity_income);
     }
 
     private void replaceFragment(Fragment fragment) {
@@ -42,6 +47,9 @@ public class AddFundActivity extends AppCompatActivity {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.fragment_container, fragment);
         fragmentTransaction.commit();
+    }
 
+    public String getData() {
+        return selectedDate;
     }
 }

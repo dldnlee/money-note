@@ -2,6 +2,11 @@ package com.example.moneynote.utils;
 
 import android.content.Context;
 
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+
+import com.example.moneynote.R;
 import com.example.moneynote.model.UserDataModel;
 
 import java.io.BufferedReader;
@@ -50,7 +55,6 @@ public class MoneyNoteUtils {
         }
     }
 
-
     public static String readFile(Context context, String fileName) throws FileNotFoundException {
         FileInputStream fis = context.openFileInput(fileName);
 
@@ -70,17 +74,6 @@ public class MoneyNoteUtils {
 
         }
         return stringBuilder.toString().trim();
-    }
-
-
-    public static void appendWriteFile(String filename, String data) {
-        try(FileWriter fw = new FileWriter(filename, true);
-            BufferedWriter bw = new BufferedWriter(fw);
-            PrintWriter out = new PrintWriter(bw)){
-            out.println(data);
-        } catch(IOException e) {
-
-        }
     }
 
 
