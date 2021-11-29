@@ -29,7 +29,7 @@ import java.util.ArrayList;
 public class IncomeFragment extends Fragment {
     private FragmentIncomeBinding binding;
     private ArrayList<UserDataModel> array = new ArrayList<>();
-    private final String saveFileName = "userdata.json";
+    private final String saveFileName = "data.json";
     private String userData;
     private String jsonData;
 
@@ -56,7 +56,7 @@ public class IncomeFragment extends Fragment {
         try {
             this.jsonData = MoneyNoteUtils.readFile(context, fileName);
         } catch (IOException e){
-
+            Log.i("FILEREAD", "Could not find file " + fileName);
         }
     }
 

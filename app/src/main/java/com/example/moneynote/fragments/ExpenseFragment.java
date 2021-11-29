@@ -43,7 +43,7 @@ import java.util.List;
 public class ExpenseFragment extends Fragment {
     private FragmentExpenseBinding binding;
     private ArrayList<UserDataModel> array = new ArrayList<>();
-    private final String saveFileName = "userdata.json";
+    private final String saveFileName = "data.json";
     private String userData;
     private String jsonData;
 
@@ -73,7 +73,7 @@ public class ExpenseFragment extends Fragment {
         try {
             this.jsonData = MoneyNoteUtils.readFile(context, fileName);
         } catch (IOException e){
-
+            Log.i("FILEREAD", "Could not find file " + fileName);
         }
     }
 

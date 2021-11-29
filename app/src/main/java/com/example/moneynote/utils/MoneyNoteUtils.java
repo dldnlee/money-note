@@ -1,6 +1,7 @@
 package com.example.moneynote.utils;
 
 import android.content.Context;
+import android.util.Log;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -8,6 +9,9 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.example.moneynote.R;
 import com.example.moneynote.model.UserDataModel;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -68,13 +72,9 @@ public class MoneyNoteUtils {
                 stringBuilder.append(line).append('\n');
                 line = reader.readLine();
             }
-
-
         } catch (IOException e) {
 
         }
         return stringBuilder.toString().trim();
     }
-
-
 }
