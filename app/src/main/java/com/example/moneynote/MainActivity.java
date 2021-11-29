@@ -33,28 +33,30 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
                     case R.id.home:
+                        binding.title.setText("홈");
                         homeFragment();
                         break;
 
                     case R.id.calendar:
+                        binding.title.setText("달력");
                         calendarFragment();
                         break;
 
                     case R.id.graph:
+                        binding.title.setText("통계");
                         graphFragment();
                         break;
 
                     case R.id.settings:
+                        binding.title.setText("설정");
                         settingsFragment();
                         break;
                 }
-
-                return false;
+                return true;
             }
         });
 
     }
-
 
     private void homeFragment() {
         replaceFragment(new HomeFragment());
