@@ -26,26 +26,22 @@ public class AddFundActivity extends AppCompatActivity {
             this.selectedDate = extras.getString("SELECTED_DATE");
         }
 
-        expenseFragment();
+        replaceFragment(R.id.fragment_container, new ExpenseFragment());
 
-        binding.expenseOption.setOnClickListener(v -> expenseFragment());
-        binding.incomeOption.setOnClickListener(v -> incomeFragment());
+        binding.expenseOption.setOnClickListener(v -> {
+            replaceFragment(R.id.fragment_container, new ExpenseFragment());
+            binding.title.setText(R.string.add_fund_activity_expense);
+        });
+        binding.incomeOption.setOnClickListener(v -> {
+            replaceFragment(R.id.fragment_container, new IncomeFragment());
+            binding.title.setText(R.string.add_fund_activity_income);
+        });
     }
 
-    private void expenseFragment() {
-        replaceFragment(new ExpenseFragment());
-        binding.title.setText(R.string.add_fund_activity_expense);
-    }
-
-    private void incomeFragment() {
-        replaceFragment(new IncomeFragment());
-        binding.title.setText(R.string.add_fund_activity_income);
-    }
-
-    private void replaceFragment(Fragment fragment) {
+    public void replaceFragment(int id, Fragment fragment) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.fragment_container, fragment);
+        fragmentTransaction.replace(id, fragment);
         fragmentTransaction.commit();
     }
 

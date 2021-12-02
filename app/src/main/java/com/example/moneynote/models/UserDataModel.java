@@ -1,4 +1,4 @@
-package com.example.moneynote.model;
+package com.example.moneynote.models;
 
 public class UserDataModel {
     private String date;

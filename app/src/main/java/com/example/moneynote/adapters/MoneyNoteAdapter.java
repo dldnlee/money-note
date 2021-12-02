@@ -1,4 +1,4 @@
-package com.example.moneynote;
+package com.example.moneynote.adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -6,7 +6,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import com.example.moneynote.model.UserDataModel;
+
+import com.example.moneynote.R;
+import com.example.moneynote.models.UserDataModel;
 import java.util.ArrayList;
 
 public class MoneyNoteAdapter extends RecyclerView.Adapter<MoneyNoteAdapter.ViewHolder> {

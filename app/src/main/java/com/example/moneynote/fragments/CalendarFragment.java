@@ -1,10 +1,8 @@
 package com.example.moneynote.fragments;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -17,25 +15,19 @@ import android.view.ViewGroup;
 import android.widget.CalendarView;
 
 import com.example.moneynote.AddFundActivity;
-import com.example.moneynote.MoneyNoteAdapter;
+import com.example.moneynote.adapters.MoneyNoteAdapter;
 import com.example.moneynote.databinding.FragmentCalendarBinding;
-import com.example.moneynote.model.UserDataModel;
+import com.example.moneynote.models.UserDataModel;
 import com.example.moneynote.utils.MoneyNoteUtils;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.Locale;
-import java.util.Map;
 
 
 public class CalendarFragment extends Fragment {
@@ -56,23 +48,51 @@ public class CalendarFragment extends Fragment {
 
         binding.addButton.setOnClickListener(v -> addFundActivity());
 
-        setData();
-        dataFilter(date);
-        setAdapter();
-
 //        Calendar
         binding.calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(CalendarView view, int year, int month,
                                             int dayOfMonth) {
                 filteredList.clear();
-                String selectedDate = String.format("%d년%d월%d일", year, (month + 1), dayOfMonth);
+                String sDayOfMonth, sMonth;
+                if (dayOfMonth < 10 && (month+1) < 10) {
+                    sDayOfMonth = "0"+String.valueOf(dayOfMonth);
+                    sMonth = "0"+String.valueOf(month+1);
+                } else if ((month+1) < 10) {
+                    sDayOfMonth = String.valueOf(dayOfMonth);
+                    sMonth = "0"+String.valueOf(month+1);
+                } else if (dayOfMonth < 10){
+                    sDayOfMonth = "0"+String.valueOf(dayOfMonth);
+                    sMonth = String.valueOf(month+1);
+                } else {
+                    sDayOfMonth = String.valueOf(dayOfMonth);
+                    sMonth = String.valueOf(month+1);
+                }
+                String selectedDate = String.format("%d년%s월%s일", year, sMonth, sDayOfMonth);
                 binding.subheading.setText(selectedDate);
                 dataFilter(selectedDate);
                 adapter.notifyDataSetChanged();
             }
         });
         return binding.getRoot();
+    }
+
+    @Override
+    public void onResume() {
+//        Log.i("ONRESUME", "RESUME CALLED");
+        super.onResume();
+
+        filteredList.clear();
+        String date = binding.subheading.getText().toString();
+        setData();
+        dataFilter(date);
+        setAdapter();
+    }
+
+    @Override
+    public void onPause() {
+//        Log.i("ONPAUSE", "PAUSE CALLED");
+        super.onPause();
     }
 
     private void addFundActivity() {
