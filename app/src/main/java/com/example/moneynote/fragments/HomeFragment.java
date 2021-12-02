@@ -28,8 +28,11 @@ public class HomeFragment extends Fragment {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
 
         binding.buttonCalendar.setOnClickListener(v -> calendarFragment());
+        binding.buttonGraph.setOnClickListener(v-> graphFragment());
         return binding.getRoot();
     }
+
+    private void graphFragment() {replaceFragment(new GraphFragment());}
 
     private void calendarFragment() {
         replaceFragment(new CalendarFragment());
