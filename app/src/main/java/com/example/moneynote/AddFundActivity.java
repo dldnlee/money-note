@@ -10,6 +10,7 @@ import android.os.Bundle;
 import com.example.moneynote.databinding.ActivityAddFundBinding;
 import com.example.moneynote.fragments.ExpenseFragment;
 import com.example.moneynote.fragments.IncomeFragment;
+import com.example.moneynote.utils.MoneyNoteUtils;
 
 public class AddFundActivity extends AppCompatActivity {
     private ActivityAddFundBinding binding;
@@ -26,23 +27,16 @@ public class AddFundActivity extends AppCompatActivity {
             this.selectedDate = extras.getString("SELECTED_DATE");
         }
 
-        replaceFragment(R.id.fragment_container, new ExpenseFragment());
+        MoneyNoteUtils.replaceFragment(this, R.id.fragment_container, new ExpenseFragment());
 
         binding.expenseOption.setOnClickListener(v -> {
-            replaceFragment(R.id.fragment_container, new ExpenseFragment());
+            MoneyNoteUtils.replaceFragment(this, R.id.fragment_container, new ExpenseFragment());
             binding.title.setText(R.string.add_fund_activity_expense);
         });
         binding.incomeOption.setOnClickListener(v -> {
-            replaceFragment(R.id.fragment_container, new IncomeFragment());
+            MoneyNoteUtils.replaceFragment(this, R.id.fragment_container, new IncomeFragment());
             binding.title.setText(R.string.add_fund_activity_income);
         });
-    }
-
-    public void replaceFragment(int id, Fragment fragment) {
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(id, fragment);
-        fragmentTransaction.commit();
     }
 
     public String getData() {

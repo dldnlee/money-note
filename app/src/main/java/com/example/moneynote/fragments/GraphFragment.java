@@ -47,7 +47,6 @@ public class GraphFragment extends Fragment {
         data.add(new ValueDataEntry("John", 1000));
 
         pie.data(data);
-        pie.animation(true);
 
         anyChartView.setChart(pie);
         return binding.getRoot();

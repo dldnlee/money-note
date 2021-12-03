@@ -1,6 +1,5 @@
 package com.example.moneynote.fragments;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -11,10 +10,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.example.moneynote.R;
-import com.example.moneynote.databinding.FragmentExpenseBinding;
 import com.example.moneynote.databinding.FragmentHomeBinding;
 import com.example.moneynote.models.UserDataModel;
 import com.example.moneynote.utils.MoneyNoteUtils;
@@ -23,7 +20,10 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Locale;
 
 
 public class HomeFragment extends Fragment {
@@ -39,33 +39,16 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         setData();
+        thisMonthData();
 
-        for (int i=0; i < data.size(); i++) {
-            if (data.get(i).getType().equals("Expense")) {
-                incomeNum += data.get(i).getAmount();
-                binding.income.setText(String.valueOf(incomeNum));
-            } else if (data.get(i).getType().equals("Income")) {
-                expenseNum += data.get(i).getAmount();
-                binding.expense.setText(String.valueOf(expenseNum));
-            }
-        }
+        binding.buttonCalendar.setOnClickListener(v -> {
+            MoneyNoteUtils.replaceFragment(getActivity(), R.id.fragment_container, new CalendarFragment());
+        });
+        binding.buttonGraph.setOnClickListener(v-> {
+            MoneyNoteUtils.replaceFragment(getActivity(), R.id.fragment_container, new GraphFragment());
+        });
 
-        binding.buttonCalendar.setOnClickListener(v -> calendarFragment());
-        binding.buttonGraph.setOnClickListener(v-> graphFragment());
         return binding.getRoot();
-    }
-
-    private void graphFragment() {replaceFragment(new GraphFragment());}
-
-    private void calendarFragment() {
-        replaceFragment(new CalendarFragment());
-    }
-
-    private void replaceFragment(Fragment fragment) {
-        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.fragment_container, fragment);
-        fragmentTransaction.commit();
     }
 
     private void setData(){
@@ -89,6 +72,19 @@ public class HomeFragment extends Fragment {
                 }.getType());
             } catch (IOException d) {
 
+            }
+        }
+    }
+
+    private void thisMonthData() {
+        String thisMonth = new SimpleDateFormat("MM월", Locale.getDefault()).format(new Date());
+        for (int i=0; i < data.size(); i++) {
+            if (data.get(i).getType().equals("Expense") && data.get(i).getDate().contains(thisMonth)) {
+                incomeNum += data.get(i).getAmount();
+                binding.income.setText("+"+String.valueOf(incomeNum));
+            } else if (data.get(i).getType().equals("Income") && data.get(i).getDate().contains(thisMonth)) {
+                expenseNum += data.get(i).getAmount();
+                binding.expense.setText("-"+String.valueOf(expenseNum));
             }
         }
     }

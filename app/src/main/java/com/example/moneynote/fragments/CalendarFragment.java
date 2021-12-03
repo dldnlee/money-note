@@ -74,6 +74,7 @@ public class CalendarFragment extends Fragment {
                 adapter.notifyDataSetChanged();
             }
         });
+
         return binding.getRoot();
     }
 
@@ -93,6 +94,10 @@ public class CalendarFragment extends Fragment {
     public void onPause() {
 //        Log.i("ONPAUSE", "PAUSE CALLED");
         super.onPause();
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
+        String jsonData = gson.toJson(data);
+        MoneyNoteUtils.writeFile(getActivity(), fileName, jsonData);
     }
 
     private void addFundActivity() {
@@ -103,7 +108,7 @@ public class CalendarFragment extends Fragment {
     }
 
     private void setAdapter() {
-        adapter = new MoneyNoteAdapter(filteredList);
+        adapter = new MoneyNoteAdapter(getActivity(), filteredList, data);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         binding.listOfItems.setLayoutManager(layoutManager);
         binding.listOfItems.setItemAnimator(new DefaultItemAnimator());
@@ -117,21 +122,7 @@ public class CalendarFragment extends Fragment {
             data = gson.fromJson(userData, new TypeToken<ArrayList<UserDataModel>>(){
             }.getType());
         } catch (IOException e) {
-            Gson gson = new GsonBuilder().setPrettyPrinting().create();
-            Log.i("FILEREAD", "Could not find file, created file " + fileName);
-            ArrayList<UserDataModel> initialData = new ArrayList<>();
-            UserDataModel initialItem = new UserDataModel("", "", "", 0, "");
-            String temporary;
-            initialData.add(initialItem);
-            temporary = gson.toJson(initialData);
-            MoneyNoteUtils.writeFile(getActivity(), fileName, temporary);
-            try {
-                String tempData = MoneyNoteUtils.readFile(getActivity(), fileName);
-                data = gson.fromJson(tempData, new TypeToken<ArrayList<UserDataModel>>(){
-                }.getType());
-            } catch (IOException d) {
 
-            }
         }
     }
 

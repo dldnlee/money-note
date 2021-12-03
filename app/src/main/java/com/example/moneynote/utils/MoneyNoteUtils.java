@@ -1,10 +1,19 @@
 package com.example.moneynote.utils;
 
+import android.app.Activity;
 import android.content.Context;
+import android.util.Log;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+
+import com.example.moneynote.R;
+import com.example.moneynote.models.UserDataModel;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
@@ -14,6 +23,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 
 public class MoneyNoteUtils {
 
@@ -65,5 +75,12 @@ public class MoneyNoteUtils {
 
         }
         return stringBuilder.toString().trim();
+    }
+
+    public static void replaceFragment(Activity activity, int fragmentContainerID, Fragment fragment) {
+        FragmentManager fragmentManager = ((FragmentActivity)activity).getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(fragmentContainerID, fragment);
+        fragmentTransaction.commit();
     }
 }
