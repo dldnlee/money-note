@@ -3,8 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/havyd/AndroidStudioProjects/MoneyNote/app/src/main/res/drawable/borderbutton_normal.xml" value="0.19166666666666668" />
         <entry key="..\:/Users/havyd/AndroidStudioProjects/MoneyNote/app/src/main/res/drawable/borderbutton_pressed.xml" value="0.24444444444444444" />
         <entry key="..\:/Users/havyd/AndroidStudioProjects/MoneyNote/app/src/main/res/drawable/buttonwithborder.xml" value="0.17407407407407408" />
+        <entry key="..\:/Users/havyd/AndroidStudioProjects/MoneyNote/app/src/main/res/drawable/categorybuttoncolor.xml" value="0.19166666666666668" />
         <entry key="..\:/Users/havyd/AndroidStudioProjects/MoneyNote/app/src/main/res/drawable/categorybuttons.xml" value="0.24444444444444444" />
         <entry key="..\:/Users/havyd/AndroidStudioProjects/MoneyNote/app/src/main/res/drawable/roundbutton.xml" value="0.14907407407407408" />
         <entry key="..\:/Users/havyd/AndroidStudioProjects/MoneyNote/app/src/main/res/drawable/roundedbutton.xml" value="0.14907407407407408" />
