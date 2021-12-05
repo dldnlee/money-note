@@ -5,6 +5,9 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -12,6 +15,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.moneynote.R;
+import com.example.moneynote.adapters.CalendarAdapter;
+import com.example.moneynote.adapters.HomeAdapter;
 import com.example.moneynote.databinding.FragmentHomeBinding;
 import com.example.moneynote.models.UserDataModel;
 import com.example.moneynote.utils.MoneyNoteUtils;
@@ -32,6 +37,7 @@ public class HomeFragment extends Fragment {
     private ArrayList<UserDataModel> data;
     private int incomeNum;
     private int expenseNum;
+    private HomeAdapter adapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater,
@@ -40,6 +46,7 @@ public class HomeFragment extends Fragment {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         setData();
         thisMonthData();
+        setAdapter();
 
         binding.buttonCalendar.setOnClickListener(v -> {
             MoneyNoteUtils.replaceFragment(getActivity(), R.id.fragment_container, new CalendarFragment());
@@ -79,13 +86,21 @@ public class HomeFragment extends Fragment {
     private void thisMonthData() {
         String thisMonth = new SimpleDateFormat("MM월", Locale.getDefault()).format(new Date());
         for (int i=0; i < data.size(); i++) {
-            if (data.get(i).getType().equals("Expense") && data.get(i).getDate().contains(thisMonth)) {
+            if (data.get(i).getType().equals("Income") && data.get(i).getDate().contains(thisMonth)) {
                 incomeNum += data.get(i).getAmount();
-                binding.income.setText("+"+String.valueOf(incomeNum));
-            } else if (data.get(i).getType().equals("Income") && data.get(i).getDate().contains(thisMonth)) {
+                binding.income.setText(String.format("+%d원", incomeNum));
+            } else if (data.get(i).getType().equals("Expense") && data.get(i).getDate().contains(thisMonth)) {
                 expenseNum += data.get(i).getAmount();
-                binding.expense.setText("-"+String.valueOf(expenseNum));
+                binding.expense.setText(String.format("-%d원", expenseNum));
             }
         }
+    }
+
+    private void setAdapter() {
+        adapter = new HomeAdapter(data);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        binding.listOfTransaction.setLayoutManager(layoutManager);
+        binding.listOfTransaction.setItemAnimator(new DefaultItemAnimator());
+        binding.listOfTransaction.setAdapter(adapter);
     }
 }

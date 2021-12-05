@@ -123,6 +123,8 @@ public class IncomeFragment extends Fragment {
 
         dataModelArrayList.add(data);
 
+        dataModelArrayList.sort((d1,d2) ->d1.getDate().compareTo(d2.getDate()));
+
         this.userData = gson.toJson(dataModelArrayList);
 
         MoneyNoteUtils.writeFile(getActivity(), saveFileName, userData);

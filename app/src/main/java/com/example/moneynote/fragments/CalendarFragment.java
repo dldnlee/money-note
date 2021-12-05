@@ -10,14 +10,12 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CalendarView;
 
 import com.example.moneynote.AddFundActivity;
-import com.example.moneynote.adapters.MoneyNoteAdapter;
+import com.example.moneynote.adapters.CalendarAdapter;
 import com.example.moneynote.databinding.FragmentCalendarBinding;
 import com.example.moneynote.models.UserDataModel;
 import com.example.moneynote.utils.EventDecorator;
@@ -43,7 +41,7 @@ public class CalendarFragment extends Fragment implements OnDateSelectedListener
     private ArrayList<UserDataModel> data;
     private ArrayList<UserDataModel> filteredList = new ArrayList<UserDataModel>();
     private String fileName = "data.json";
-    private MoneyNoteAdapter adapter;
+    private CalendarAdapter adapter;
     private ArrayList<CalendarDay> dates = new ArrayList<>();
 
     @Override
@@ -54,6 +52,8 @@ public class CalendarFragment extends Fragment implements OnDateSelectedListener
 
         String date = new SimpleDateFormat("yyyy년MM월dd일", Locale.getDefault()).format(new Date());
         binding.subheading.setText(date);
+
+        binding.calendar.setDateSelected(CalendarDay.today(), true);
 
         binding.addButton.setOnClickListener(v -> addFundActivity());
 
@@ -73,7 +73,7 @@ public class CalendarFragment extends Fragment implements OnDateSelectedListener
         dataFilter(date);
         setAdapter();
         setCalendarEvents();
-        binding.calendar.addDecorator(new EventDecorator(Color.BLUE, dates));
+        binding.calendar.addDecorator(new EventDecorator(Color.parseColor("#FFCC00"), dates));
     }
 
     @Override
@@ -94,7 +94,7 @@ public class CalendarFragment extends Fragment implements OnDateSelectedListener
     }
 
     private void setAdapter() {
-        adapter = new MoneyNoteAdapter(getActivity(), filteredList, data);
+        adapter = new CalendarAdapter(getActivity(), filteredList, data);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         binding.listOfItems.setLayoutManager(layoutManager);
         binding.listOfItems.setItemAnimator(new DefaultItemAnimator());

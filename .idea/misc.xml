@@ -8,8 +8,15 @@
         <entry key="..\:/Users/havyd/AndroidStudioProjects/MoneyNote/app/src/main/res/drawable/buttonwithborder.xml" value="0.17407407407407408" />
         <entry key="..\:/Users/havyd/AndroidStudioProjects/MoneyNote/app/src/main/res/drawable/categorybuttoncolor.xml" value="0.19166666666666668" />
         <entry key="..\:/Users/havyd/AndroidStudioProjects/MoneyNote/app/src/main/res/drawable/categorybuttons.xml" value="0.24444444444444444" />
+        <entry key="..\:/Users/havyd/AndroidStudioProjects/MoneyNote/app/src/main/res/drawable/home_normal.xml" value="0.19814814814814816" />
+        <entry key="..\:/Users/havyd/AndroidStudioProjects/MoneyNote/app/src/main/res/drawable/home_pressed.xml" value="0.19814814814814816" />
+        <entry key="..\:/Users/havyd/AndroidStudioProjects/MoneyNote/app/src/main/res/drawable/homepagebuttons.xml" value="0.208984375" />
+        <entry key="..\:/Users/havyd/AndroidStudioProjects/MoneyNote/app/src/main/res/drawable/ic_launcher_background.xml" value="0.287962962962963" />
+        <entry key="..\:/Users/havyd/AndroidStudioProjects/MoneyNote/app/src/main/res/drawable/indicator_expense.xml" value="0.3138888888888889" />
+        <entry key="..\:/Users/havyd/AndroidStudioProjects/MoneyNote/app/src/main/res/drawable/indicator_income.xml" value="0.3138888888888889" />
         <entry key="..\:/Users/havyd/AndroidStudioProjects/MoneyNote/app/src/main/res/drawable/roundbutton.xml" value="0.14907407407407408" />
         <entry key="..\:/Users/havyd/AndroidStudioProjects/MoneyNote/app/src/main/res/drawable/roundedbutton.xml" value="0.14907407407407408" />
+        <entry key="..\:/Users/havyd/AndroidStudioProjects/MoneyNote/app/src/main/res/drawable/roundedcorners.xml" value="0.1" />
         <entry key="..\:/Users/havyd/AndroidStudioProjects/MoneyNote/app/src/main/res/layout/activity_add_fund.xml" value="0.22" />
         <entry key="..\:/Users/havyd/AndroidStudioProjects/MoneyNote/app/src/main/res/layout/activity_calendar.xml" value="0.1" />
         <entry key="..\:/Users/havyd/AndroidStudioProjects/MoneyNote/app/src/main/res/layout/activity_graph.xml" value="0.36666666666666664" />
@@ -24,6 +31,7 @@
         <entry key="..\:/Users/havyd/AndroidStudioProjects/MoneyNote/app/src/main/res/layout/fragment_income.xml" value="0.22" />
         <entry key="..\:/Users/havyd/AndroidStudioProjects/MoneyNote/app/src/main/res/layout/fragment_menu.xml" value="0.25" />
         <entry key="..\:/Users/havyd/AndroidStudioProjects/MoneyNote/app/src/main/res/layout/fragment_settings.xml" value="0.27355072463768115" />
+        <entry key="..\:/Users/havyd/AndroidStudioProjects/MoneyNote/app/src/main/res/layout/home_fragment_container.xml" value="0.36594202898550726" />
         <entry key="..\:/Users/havyd/AndroidStudioProjects/MoneyNote/app/src/main/res/layout/income_expense_container.xml" value="0.22" />
         <entry key="..\:/Users/havyd/AndroidStudioProjects/MoneyNote/app/src/main/res/menu/navigation_items.xml" value="0.25925925925925924" />
         <entry key="..\:/Users/inyou/AndroidStudioProjects/MonetNote/app/src/main/res/layout/fragment_graph.xml" value="0.24947916666666667" />

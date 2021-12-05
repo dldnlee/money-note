@@ -5,6 +5,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <View
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+        android:background="@color/grey"
+        android:id="@+id/first_line"
+        app:layout_constraintStart_toStartOf="@id/indicator"
+        app:layout_constraintEnd_toEndOf="@id/indicator"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/indicator"/>
+
+    <View
         android:layout_width="7dp"
         android:layout_height="7dp"
         android:background="@drawable/indicator_expense"
@@ -13,6 +23,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/amount"
         app:layout_constraintBottom_toBottomOf="@id/amount"/>
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="40dp"
+        android:background="@color/grey"
+        android:id="@+id/second_line"
+        app:layout_constraintStart_toStartOf="@id/indicator"
+        app:layout_constraintEnd_toEndOf="@id/indicator"
+        app:layout_constraintTop_toBottomOf="@id/indicator" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -28,7 +47,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/desc"
+        android:id="@+id/date"
         android:textSize="12sp"
         android:text="2021년09월12일"
         app:layout_constraintStart_toStartOf="@id/amount"
@@ -43,15 +62,5 @@
         android:layout_marginEnd="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/amount" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/grey"
-        android:layout_marginTop="5dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/desc" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
