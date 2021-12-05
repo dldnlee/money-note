@@ -39,7 +39,7 @@ import java.util.Locale;
 public class CalendarFragment extends Fragment implements OnDateSelectedListener {
     private FragmentCalendarBinding binding;
     private ArrayList<UserDataModel> data;
-    private ArrayList<UserDataModel> filteredList = new ArrayList<UserDataModel>();
+    private ArrayList<UserDataModel> filteredList = new ArrayList<>();
     private String fileName = "data.json";
     private CalendarAdapter adapter;
     private ArrayList<CalendarDay> dates = new ArrayList<>();

@@ -45,8 +45,19 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         setData();
-        thisMonthData();
         setAdapter();
+        thisMonthData();
+
+        if (incomeNum > expenseNum) {
+            binding.imageResult.setImageResource(R.drawable.smile_face);
+            binding.textResult.setText("적자입니다");
+        } else if (incomeNum < expenseNum) {
+            binding.imageResult.setImageResource(R.drawable.sad_face);
+            binding.textResult.setText("흑자입니다");
+        } else {
+            binding.imageResult.setVisibility(View.INVISIBLE);
+            binding.textResult.setVisibility(View.INVISIBLE);
+        }
 
         binding.buttonCalendar.setOnClickListener(v -> {
             MoneyNoteUtils.replaceFragment(getActivity(), R.id.fragment_container, new CalendarFragment());

@@ -10,9 +10,12 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.moneynote.MainActivity;
 import com.example.moneynote.R;
+import com.example.moneynote.fragments.CalendarFragment;
 import com.example.moneynote.models.UserDataModel;
 
 import java.util.ArrayList;
@@ -21,6 +24,7 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.ViewHo
     private ArrayList<UserDataModel> array;
     private ArrayList<UserDataModel> dataArray;
     private Context context;
+    private Fragment fragment;
 
     public CalendarAdapter(Context context, ArrayList<UserDataModel> array, ArrayList<UserDataModel> dataArray) {
         this.array = array;
@@ -63,7 +67,6 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.ViewHo
             holder.amountText.setText("+"+Integer.toString(amount));
         }
 
-
         if(description.equals("")) {
             holder.descText.setVisibility(View.GONE);
         } else {
@@ -72,7 +75,7 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.ViewHo
 
         holder.categoryText.setText(category);
 
-        holder.itemView.setOnClickListener(v -> {
+        holder.itemView.setOnLongClickListener(v -> {
             holder.itemView.setBackgroundColor(Color.parseColor("#BDBDBD"));
             AlertDialog.Builder alertDialog = new AlertDialog.Builder(context);
             alertDialog.setTitle("기록 삭제");
@@ -88,15 +91,14 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.ViewHo
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
                     for (int k=0; k<dataArray.size(); k++) {
-                        if (dataArray.get(k).equals(array.get(position))) {
-                            dataArray.remove(k);
-                        }
+                        if (dataArray.get(k).equals(array.get(position))) dataArray.remove(k);
                     }
                     holder.itemView.setBackgroundColor(Color.parseColor("#FFFFFFFF"));
                 }
             });
             AlertDialog dialog = alertDialog.create();
             dialog.show();
+            return true;
         });
 
     }

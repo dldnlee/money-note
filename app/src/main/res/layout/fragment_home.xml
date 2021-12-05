@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginStart="35dp"
-        android:textSize="15sp"
+        android:textSize="11sp"
         android:text="이번 달의 수입"
         android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="parent"
@@ -36,7 +36,7 @@
         android:layout_marginTop="5dp"
         android:layout_marginStart="35dp"
         android:textColor="@color/white"
-        android:textSize="30dp"
+        android:textSize="30sp"
         android:text="+0원"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_income"/>
@@ -47,7 +47,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginStart="35dp"
-        android:textSize="15sp"
+        android:textSize="11sp"
         android:text="이번 달의 지출"
         android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="parent"
@@ -65,17 +65,29 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_expense"/>
 
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/image_result"
+        android:src="@drawable/smile_face"
+        android:tint="@color/white"
+        android:layout_marginStart="40dp"
+        app:layout_constraintStart_toEndOf="@id/text_expense"
+        app:layout_constraintTop_toTopOf="@id/text_income"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/text_result" />
+
     <TextView
         android:id="@+id/text_result"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:textSize="50dp"
+        android:textSize="20sp"
+        android:textColor="@color/white"
         android:text="적자"
-        android:visibility="gone"
-        app:layout_constraintTop_toBottomOf="@+id/expense"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@id/image_result"
+        app:layout_constraintStart_toStartOf="@id/image_result"
+        app:layout_constraintEnd_toEndOf="@id/image_result"
+        app:layout_constraintBottom_toBottomOf="@id/expense"/>
 
 <!--    Second section-->
     <View
@@ -90,14 +102,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/expense" />
 
-    <ImageButton
+    <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/button_calendar"
         android:layout_width="90dp"
         android:layout_height="90dp"
         android:layout_marginTop="19dp"
         android:src="@drawable/ic_calendar"
         android:scaleType="fitCenter"
-        android:padding="10dp"
+        android:padding="15dp"
+        android:tint="@color/main_color"
         android:background="@drawable/homepagebuttons"
         app:layout_constraintStart_toStartOf="@id/section_one"
         app:layout_constraintEnd_toStartOf="@id/button_graph"
@@ -114,13 +127,14 @@
         app:layout_constraintEnd_toEndOf="@id/button_calendar"
         app:layout_constraintTop_toBottomOf="@id/button_calendar" />
 
-    <ImageButton
+    <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/button_graph"
         android:layout_width="90dp"
         android:layout_height="90dp"
         android:src="@drawable/ic_graph"
         android:scaleType="fitCenter"
-        android:padding="10dp"
+        android:padding="15dp"
+        android:tint="@color/main_color"
         android:background="@drawable/homepagebuttons"
         app:layout_constraintStart_toEndOf="@+id/button_calendar"
         app:layout_constraintEnd_toEndOf="@id/list_of_transaction"
@@ -160,7 +174,7 @@
         android:layout_marginStart="20dp"
         android:textColor="@color/grey"
         android:id="@+id/title"
-        android:text="이번달 결제 내용"
+        android:text="모든 결제 내용"
         android:textSize="15sp"
         app:layout_constraintStart_toStartOf="@id/list_of_transaction"
         app:layout_constraintTop_toTopOf="@id/list_of_transaction" />

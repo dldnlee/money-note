@@ -12,7 +12,7 @@
         android:textAlignment="center"
         android:text="test"
         android:id="@+id/button"
-        android:textColor="@drawable/categorybuttoncolor"
+        android:textColor="@color/dark_blue"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

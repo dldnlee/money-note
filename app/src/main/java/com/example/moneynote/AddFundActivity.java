@@ -11,6 +11,7 @@ import com.example.moneynote.databinding.ActivityAddFundBinding;
 import com.example.moneynote.fragments.ExpenseFragment;
 import com.example.moneynote.fragments.IncomeFragment;
 import com.example.moneynote.utils.MoneyNoteUtils;
+import com.google.android.material.tabs.TabLayout;
 
 public class AddFundActivity extends AppCompatActivity {
     private ActivityAddFundBinding binding;
@@ -27,17 +28,50 @@ public class AddFundActivity extends AppCompatActivity {
             this.selectedDate = extras.getString("SELECTED_DATE");
         }
 
+        binding.tabLayout.addTab(binding.tabLayout.newTab().setText("지출"));
+        binding.tabLayout.addTab(binding.tabLayout.newTab().setText("수입"));
+
         MoneyNoteUtils.replaceFragment(this, R.id.fragment_container, new ExpenseFragment());
 
-        binding.expenseOption.setOnClickListener(v -> {
-            MoneyNoteUtils.replaceFragment(this, R.id.fragment_container, new ExpenseFragment());
-            binding.title.setText(R.string.add_fund_activity_expense);
+        binding.tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                switch (binding.tabLayout.getSelectedTabPosition()){
+                    case 0:
+                        binding.title.setText("지출 추가");
+                        MoneyNoteUtils.replaceFragment(AddFundActivity.this, R.id.fragment_container, new ExpenseFragment());
+                        break;
+
+                    case 1:
+                        binding.title.setText("수입 추가");
+                        MoneyNoteUtils.replaceFragment(AddFundActivity.this, R.id.fragment_container, new IncomeFragment());
+                        break;
+                }
+
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
         });
-        binding.incomeOption.setOnClickListener(v -> {
-            MoneyNoteUtils.replaceFragment(this, R.id.fragment_container, new IncomeFragment());
-            binding.title.setText(R.string.add_fund_activity_income);
-        });
+
+//        binding.expenseOption.setOnClickListener(v -> {
+//            MoneyNoteUtils.replaceFragment(this, R.id.fragment_container, new ExpenseFragment());
+//            binding.title.setText(R.string.add_fund_activity_expense);
+//        });
+//        binding.incomeOption.setOnClickListener(v -> {
+//            MoneyNoteUtils.replaceFragment(this, R.id.fragment_container, new IncomeFragment());
+//            binding.title.setText(R.string.add_fund_activity_income);
+//        });
     }
+
+
 
     public String getData() {
         return selectedDate;
