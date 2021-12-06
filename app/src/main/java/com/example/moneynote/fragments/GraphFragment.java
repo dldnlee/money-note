@@ -67,15 +67,17 @@ public class GraphFragment extends Fragment {
                              Bundle savedInstanceState) {
         binding = FragmentGraphBinding.inflate(inflater, container, false);
 
-        showExpenseGraph();
-        setData();
-        expenseData();
+
         binding.expenseOption.setOnClickListener(v -> expenseData());
         binding.incomeOption.setOnClickListener(v -> incomeData());
 
         pie = AnyChart.pie();
         AnyChartView anyChartView = binding.anyChartView;
         anyChartView.setChart(pie);
+
+        showExpenseGraph();
+        setData();
+        expenseData();
 
         return binding.getRoot();
 
@@ -176,10 +178,7 @@ public class GraphFragment extends Fragment {
     }
     private void showExpenseGraph() {
 
-//        AnyChartView anyChartView = binding.anyChartView;
 
-
-        Pie pie = AnyChart.pie();
 
         List<DataEntry> data = new ArrayList<>();
 
@@ -196,15 +195,13 @@ public class GraphFragment extends Fragment {
 
 
         pie.data(data);
+        pie.animation(true);
 
 //        anyChartView.setChart(pie);
         }
     private void showIncomeGraph() {
 
-//        AnyChartView anyChartView = binding.anyChartView;
 
-
-        Pie pie = AnyChart.pie();
 
         List<DataEntry> data = new ArrayList<>();
         data.add(new ValueDataEntry("용돈", allowanceTotal));
