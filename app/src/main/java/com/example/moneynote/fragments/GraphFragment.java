@@ -40,10 +40,25 @@ public class GraphFragment extends Fragment {
     private FragmentGraphBinding binding;
     private ArrayList<UserDataModel> data;
     private String fileName = "data.json";
+    private Pie pie;
+
     int foodTotal = 0;
     int clothesTotal = 0;
+    int transportationTotal = 0;
+    int activityTotal = 0;
+    int martTotal = 0;
+    int suppliesTotal = 0;
+    int tripTotal = 0;
+    int savingsTotal = 0;
+    int giftTotal = 0;
+    int parentsTotal = 0;
+    int incomeEtcTotal = 0;
+    int scholarsTotal = 0;
     int allowanceTotal = 0;
     int salaryTotal = 0;
+    int loanTotal = 0;
+    int friendsTotal = 0;
+    int expenseEtcTotal = 0;
 
 
     @Override
@@ -57,6 +72,10 @@ public class GraphFragment extends Fragment {
         expenseData();
         binding.expenseOption.setOnClickListener(v -> expenseData());
         binding.incomeOption.setOnClickListener(v -> incomeData());
+
+        pie = AnyChart.pie();
+        AnyChartView anyChartView = binding.anyChartView;
+        anyChartView.setChart(pie);
 
         return binding.getRoot();
 
@@ -89,65 +108,116 @@ public class GraphFragment extends Fragment {
         }
     }
     private void expenseData() {
-        binding.title.setText("지출");
+
 //        ArrayList<UserDataModel> items = new ArrayList<UserDataModel>();
         for (int i = 0; i < data.size(); i++) {
-            if (data.get(i).getType().equals("Expense") && data.get(i).getCategory().equals("Food")) {
+            if (data.get(i).getType().equals("Expense") && data.get(i).getCategory().equals("식비")) {
                 foodTotal += data.get(i).getAmount();
-            } else if (data.get(i).getType().equals("Expense") && data.get(i).getCategory().equals("Clothes")) {
+            } else if (data.get(i).getType().equals("Expense") && data.get(i).getCategory().equals("패션/미용")) {
                 clothesTotal += data.get(i).getAmount();
-
             }
+            else if (data.get(i).getType().equals("Expense") && data.get(i).getCategory().equals("문화생활")) {
+                clothesTotal += data.get(i).getAmount();
+            }
+            else if (data.get(i).getType().equals("Expense") && data.get(i).getCategory().equals("교통")) {
+                transportationTotal += data.get(i).getAmount();
+            }
+            else if (data.get(i).getType().equals("Expense") && data.get(i).getCategory().equals("마트/편의점")) {
+                martTotal += data.get(i).getAmount();
+            }
+            else if (data.get(i).getType().equals("Expense") && data.get(i).getCategory().equals("생활용품")) {
+                suppliesTotal += data.get(i).getAmount();
+            }
+            else if (data.get(i).getType().equals("Expense") && data.get(i).getCategory().equals("여행")) {
+                tripTotal += data.get(i).getAmount();
+            }
+            else if (data.get(i).getType().equals("Expense") && data.get(i).getCategory().equals("적금")) {
+                savingsTotal += data.get(i).getAmount();
+            }
+            else if (data.get(i).getType().equals("Expense") && data.get(i).getCategory().equals("선물")) {
+                giftTotal += data.get(i).getAmount();
+            }
+            else if (data.get(i).getType().equals("Expense") && data.get(i).getCategory().equals("부모님")) {
+                parentsTotal += data.get(i).getAmount();
+            }
+            else if (data.get(i).getType().equals("Expense") && data.get(i).getCategory().equals("기타")) {
+                expenseEtcTotal += data.get(i).getAmount();
+            }
+
 
         }
         showExpenseGraph();
     }
 
     private void incomeData(){
-    binding.title.setText("지출");
-        for (int i = 0; i < data.size(); i++) {
-            if (data.get(i).getType().equals("Expense") && data.get(i).getCategory().equals("Salary")) {
-                salaryTotal += data.get(i).getAmount();
-            } else if (data.get(i).getType().equals("Expense") && data.get(i).getCategory().equals("Allowance")) {
-                allowanceTotal += data.get(i).getAmount();
 
+        for (int i = 0; i < data.size(); i++) {
+            if (data.get(i).getType().equals("Income") && data.get(i).getCategory().equals("월급")) {
+                salaryTotal += data.get(i).getAmount();
+            } else if (data.get(i).getType().equals("Income") && data.get(i).getCategory().equals("용돈")) {
+                allowanceTotal += data.get(i).getAmount();
                 }
+            else if (data.get(i).getType().equals("Income") && data.get(i).getCategory().equals("장학금")) {
+                scholarsTotal += data.get(i).getAmount();
+            }
+            else if (data.get(i).getType().equals("Income") && data.get(i).getCategory().equals("대출")) {
+                loanTotal += data.get(i).getAmount();
+            }
+            else if (data.get(i).getType().equals("Income") && data.get(i).getCategory().equals("친구")) {
+                friendsTotal += data.get(i).getAmount();
+            }
+            else if (data.get(i).getType().equals("Income") && data.get(i).getCategory().equals("기타")) {
+                incomeEtcTotal += data.get(i).getAmount();
+            }
+
         }
         showIncomeGraph();
 
     }
     private void showExpenseGraph() {
 
-        AnyChartView anyChartView = binding.anyChartView;
+//        AnyChartView anyChartView = binding.anyChartView;
 
 
         Pie pie = AnyChart.pie();
 
         List<DataEntry> data = new ArrayList<>();
 
-        data.add(new ValueDataEntry("Food", foodTotal));
-        data.add(new ValueDataEntry("Clothes", clothesTotal));
+        data.add(new ValueDataEntry("식비", foodTotal));
+        data.add(new ValueDataEntry("패션/미용", clothesTotal));
+        data.add(new ValueDataEntry("문화생활", activityTotal));
+        data.add(new ValueDataEntry("마트/편의점", martTotal));
+        data.add(new ValueDataEntry("생활용품", suppliesTotal));
+        data.add(new ValueDataEntry("여행", tripTotal));
+        data.add(new ValueDataEntry("적금", savingsTotal));
+        data.add(new ValueDataEntry("선물", giftTotal ));
+        data.add(new ValueDataEntry("부모님", parentsTotal));
+        data.add(new ValueDataEntry("기타", expenseEtcTotal));
 
 
         pie.data(data);
 
-        anyChartView.setChart(pie);
+//        anyChartView.setChart(pie);
         }
     private void showIncomeGraph() {
 
-        AnyChartView anyChartView = binding.anyChartView;
+//        AnyChartView anyChartView = binding.anyChartView;
 
 
         Pie pie = AnyChart.pie();
 
         List<DataEntry> data = new ArrayList<>();
-        data.add(new ValueDataEntry("Allowance", allowanceTotal));
-        data.add(new ValueDataEntry("Salary", salaryTotal));
+        data.add(new ValueDataEntry("용돈", allowanceTotal));
+        data.add(new ValueDataEntry("월급", salaryTotal));
+        data.add(new ValueDataEntry("장학금", scholarsTotal));
+        data.add(new ValueDataEntry("대출", loanTotal));
+        data.add(new ValueDataEntry("친구", friendsTotal));
+        data.add(new ValueDataEntry("기타", incomeEtcTotal));
 
         pie.data(data);
         pie.animation(true);
 
-        anyChartView.setChart(pie);
+//        anyChartView.setChart(pie);
     }
 
 }
