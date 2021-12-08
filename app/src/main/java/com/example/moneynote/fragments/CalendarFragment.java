@@ -73,7 +73,7 @@ public class CalendarFragment extends Fragment implements OnDateSelectedListener
         dataFilter(date);
         setAdapter();
         setCalendarEvents();
-        binding.calendar.addDecorator(new EventDecorator(Color.parseColor("#FFCC00"), dates));
+        binding.calendar.addDecorator(new EventDecorator(Color.parseColor("#1260CC"), dates));
     }
 
     @Override

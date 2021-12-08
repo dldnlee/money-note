@@ -6,7 +6,6 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,23 +16,26 @@ import com.anychart.chart.common.dataentry.DataEntry;
 import com.anychart.chart.common.dataentry.ValueDataEntry;
 import com.anychart.charts.Pie;
 
+import com.anychart.core.ui.Title;
+import com.anychart.enums.Align;
+import com.anychart.enums.LegendLayout;
+import com.example.moneynote.AddFundActivity;
+import com.example.moneynote.R;
 import com.example.moneynote.databinding.FragmentGraphBinding;
 
 import com.example.moneynote.models.UserDataModel;
 
 import com.example.moneynote.utils.MoneyNoteUtils;
+import com.google.android.material.tabs.TabLayout;
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
 
-import java.text.SimpleDateFormat;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
 
 public class GraphFragment extends Fragment {
@@ -67,22 +69,62 @@ public class GraphFragment extends Fragment {
                              Bundle savedInstanceState) {
         binding = FragmentGraphBinding.inflate(inflater, container, false);
 
+        setData();
 
-        binding.expenseOption.setOnClickListener(v -> expenseData());
-        binding.incomeOption.setOnClickListener(v -> incomeData());
+        binding.tabLayout.addTab(binding.tabLayout.newTab().setText("지출"));
+        binding.tabLayout.addTab(binding.tabLayout.newTab().setText("수입"));
 
         pie = AnyChart.pie();
-        AnyChartView anyChartView = binding.anyChartView;
-        anyChartView.setChart(pie);
 
-        showExpenseGraph();
-        setData();
-        expenseData();
+        setExpenseGraph();
+
+
+        Title title = pie.title();
+
+        title
+                .enabled(true)
+                .text("지출 통계")
+                .fontSize(30)
+                .fontWeight(600);
+
+
+
+        binding.tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                switch (binding.tabLayout.getSelectedTabPosition()){
+                    case 0:
+                        title.text("지출 통계");
+                        setExpenseGraph();
+                        break;
+
+                    case 1:
+                        title.text("수입 통계");
+                        setIncomeGraph();
+                        break;
+                }
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
+
+        pie.legend()
+                .itemsLayout(LegendLayout.VERTICAL)
+                .fontSize(15)
+                .maxHeight(150)
+                .align(Align.CENTER);
+
+        binding.anyChartView.setChart(pie);
 
         return binding.getRoot();
-
-
-
     }
 
     private void setData(){
@@ -92,26 +134,14 @@ public class GraphFragment extends Fragment {
             data = gson.fromJson(userData, new TypeToken<ArrayList<UserDataModel>>(){
             }.getType());
         } catch (IOException e) {
-            Gson gson = new GsonBuilder().setPrettyPrinting().create();
-            Log.i("FILEREAD", "Could not find file, created file " + fileName);
-            ArrayList<UserDataModel> initialData = new ArrayList<>();
-            UserDataModel initialItem = new UserDataModel("", "", "", 0, "");
-            String temporary;
-            initialData.add(initialItem);
-            temporary = gson.toJson(initialData);
-            MoneyNoteUtils.writeFile(getActivity(), fileName, temporary);
-            try {
-                String tempData = MoneyNoteUtils.readFile(getActivity(), fileName);
-                data = gson.fromJson(tempData, new TypeToken<ArrayList<UserDataModel>>(){
-                }.getType());
-            } catch (IOException d) {
 
-            }
         }
+        expenseData();
+        incomeData();
     }
+
     private void expenseData() {
 
-//        ArrayList<UserDataModel> items = new ArrayList<UserDataModel>();
         for (int i = 0; i < data.size(); i++) {
             if (data.get(i).getType().equals("Expense") && data.get(i).getCategory().equals("식비")) {
                 foodTotal += data.get(i).getAmount();
@@ -119,7 +149,7 @@ public class GraphFragment extends Fragment {
                 clothesTotal += data.get(i).getAmount();
             }
             else if (data.get(i).getType().equals("Expense") && data.get(i).getCategory().equals("문화생활")) {
-                clothesTotal += data.get(i).getAmount();
+                activityTotal += data.get(i).getAmount();
             }
             else if (data.get(i).getType().equals("Expense") && data.get(i).getCategory().equals("교통")) {
                 transportationTotal += data.get(i).getAmount();
@@ -145,10 +175,7 @@ public class GraphFragment extends Fragment {
             else if (data.get(i).getType().equals("Expense") && data.get(i).getCategory().equals("기타")) {
                 expenseEtcTotal += data.get(i).getAmount();
             }
-
-
         }
-        showExpenseGraph();
     }
 
     private void incomeData(){
@@ -171,14 +198,10 @@ public class GraphFragment extends Fragment {
             else if (data.get(i).getType().equals("Income") && data.get(i).getCategory().equals("기타")) {
                 incomeEtcTotal += data.get(i).getAmount();
             }
-
         }
-        showIncomeGraph();
-
     }
-    private void showExpenseGraph() {
 
-
+    private void setExpenseGraph() {
 
         List<DataEntry> data = new ArrayList<>();
 
@@ -192,18 +215,16 @@ public class GraphFragment extends Fragment {
         data.add(new ValueDataEntry("선물", giftTotal ));
         data.add(new ValueDataEntry("부모님", parentsTotal));
         data.add(new ValueDataEntry("기타", expenseEtcTotal));
-
+        data.add(new ValueDataEntry("교통", transportationTotal));
 
         pie.data(data);
         pie.animation(true);
+    }
 
-//        anyChartView.setChart(pie);
-        }
-    private void showIncomeGraph() {
-
-
+    private void setIncomeGraph() {
 
         List<DataEntry> data = new ArrayList<>();
+
         data.add(new ValueDataEntry("용돈", allowanceTotal));
         data.add(new ValueDataEntry("월급", salaryTotal));
         data.add(new ValueDataEntry("장학금", scholarsTotal));
@@ -213,8 +234,6 @@ public class GraphFragment extends Fragment {
 
         pie.data(data);
         pie.animation(true);
-
-//        anyChartView.setChart(pie);
     }
 
 }
