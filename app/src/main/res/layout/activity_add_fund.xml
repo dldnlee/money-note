@@ -6,9 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".AddFundActivity">
 
-
-
-
     <com.google.android.material.tabs.TabLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -19,16 +16,6 @@
         app:tabSelectedTextColor="@color/dark_blue"
         app:tabTextColor="@color/grey"
         android:id="@+id/tab_layout" />
-
-<!--    <View-->
-<!--        android:id="@+id/button_divider"-->
-<!--        android:layout_width="1dp"-->
-<!--        android:layout_height="50dp"-->
-<!--        android:layout_marginTop="10dp"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@id/title"-->
-<!--        android:background="#A8A8A8" />-->
 
     <TextView
         android:id="@+id/title"
@@ -41,30 +28,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-<!--    <Button-->
-<!--        android:id="@+id/expense_option"-->
-<!--        android:layout_width="0dp"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:backgroundTint="@color/white"-->
-<!--        android:text="@string/add_fund_activity_expense"-->
-<!--        android:textColor="@color/teal_200"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="@id/button_divider"-->
-<!--        app:layout_constraintEnd_toStartOf="@id/button_divider"-->
-<!--        android:stateListAnimator="@null" />-->
-
-<!--    <Button-->
-<!--        android:id="@+id/income_option"-->
-<!--        android:layout_width="0dp"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:backgroundTint="@color/white"-->
-<!--        android:text="@string/add_fund_activity_income"-->
-<!--        android:textColor="#BDBDBD"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="@id/button_divider"-->
-<!--        app:layout_constraintStart_toEndOf="@id/button_divider"-->
-<!--        android:stateListAnimator="@null" />-->
-
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
@@ -73,8 +36,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tab_layout"
         app:layout_constraintBottom_toBottomOf="parent" />
-
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -60,15 +60,6 @@ public class AddFundActivity extends AppCompatActivity {
 
             }
         });
-
-//        binding.expenseOption.setOnClickListener(v -> {
-//            MoneyNoteUtils.replaceFragment(this, R.id.fragment_container, new ExpenseFragment());
-//            binding.title.setText(R.string.add_fund_activity_expense);
-//        });
-//        binding.incomeOption.setOnClickListener(v -> {
-//            MoneyNoteUtils.replaceFragment(this, R.id.fragment_container, new IncomeFragment());
-//            binding.title.setText(R.string.add_fund_activity_income);
-//        });
     }
 
 

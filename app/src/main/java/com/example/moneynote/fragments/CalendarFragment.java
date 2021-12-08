@@ -94,11 +94,12 @@ public class CalendarFragment extends Fragment implements OnDateSelectedListener
     }
 
     private void setAdapter() {
-        adapter = new CalendarAdapter(getActivity(), filteredList, data);
+        adapter = new CalendarAdapter(getActivity(), filteredList, data, binding.calendar);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         binding.listOfItems.setLayoutManager(layoutManager);
         binding.listOfItems.setItemAnimator(new DefaultItemAnimator());
         binding.listOfItems.setAdapter(adapter);
+        binding.calendar.invalidateDecorators();
     }
 
     private void setData(){
