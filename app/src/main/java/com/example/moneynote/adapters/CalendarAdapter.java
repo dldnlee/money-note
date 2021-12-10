@@ -64,18 +64,26 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.ViewHo
         String description = array.get(position).getDescription();
 
         if (array.get(position).getType().equals("Expense")) {
+            if(description.equals("")) {
+                holder.descText.setVisibility(View.GONE);
+            } else {
+                holder.descText.setVisibility(View.VISIBLE);
+            }
+            holder.descText.setText(description);
             holder.indicator.setBackgroundResource(R.drawable.indicator_expense);
             holder.amountText.setText("-"+Integer.toString(amount));
         } else if (array.get(position).getType().equals("Income")) {
+            if(description.equals("")) {
+                holder.descText.setVisibility(View.GONE);
+            } else {
+                holder.descText.setVisibility(View.VISIBLE);
+            }
+            holder.descText.setText(description);
             holder.indicator.setBackgroundResource(R.drawable.indicator_income);
             holder.amountText.setText("+"+Integer.toString(amount));
         }
 
-        if(description.equals("")) {
-            holder.descText.setVisibility(View.GONE);
-        } else {
-            holder.descText.setText(description);
-        }
+
 
         holder.categoryText.setText(category);
 

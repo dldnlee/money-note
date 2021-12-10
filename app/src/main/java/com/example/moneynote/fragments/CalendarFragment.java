@@ -171,6 +171,5 @@ public class CalendarFragment extends Fragment implements OnDateSelectedListener
         binding.subheading.setText(selectedDate);
         dataFilter(selectedDate);
         adapter.notifyDataSetChanged();
-
     }
 }
