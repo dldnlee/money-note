@@ -6,14 +6,9 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.app.Notification;
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
-import android.content.Context;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
 import com.example.moneynote.databinding.ActivityMainBinding;
 import com.example.moneynote.fragments.CalendarFragment;
@@ -25,51 +20,13 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
 
-    Notification notification = null;
-    View view;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        view = this.getWindow().getDecorView();
-        view.setBackgroundResource(R.color.white);
-
         homeFragment();
-
-        NotificationManager notificationManager = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
-
-        String chID = getString(R.string.app_name);
-
-        //안드러이드 버전별로 경우가 다르다고 해서 구분
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {     //API「26」이상
-
-
-            NotificationChannel notificationChannel = new NotificationChannel(chID, chID, NotificationManager.IMPORTANCE_DEFAULT);
-
-            notificationChannel.setDescription(chID);
-
-            notificationManager.createNotificationChannel(notificationChannel);
-
-            notification = new Notification.Builder(this, chID)
-                    .setContentTitle(getString(R.string.app_name))  //title
-                    .setContentText("money note를 기록해요!")        //내용
-                    .setSmallIcon(R.drawable.icon)                  //아이콘
-                    .build();
-        } else {
-            //API「25」이하
-
-            notification = new Notification.Builder(this)
-                    .setContentTitle(getString(R.string.app_name))
-                    .setContentText("money note를 기록해요!")
-                    .setSmallIcon(R.drawable.icon)
-                    .build();
-        }
-
-        notificationManager.notify(1, notification);
 
         binding.navBar.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -122,14 +79,6 @@ public class MainActivity extends AppCompatActivity {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.fragment_container, fragment);
         fragmentTransaction.commit();
-    }
-
-
-    public void goWhite(View v) {
-        view.setBackgroundResource(R.color.white);
-    }
-    public void goGrey(View v) {
-        view.setBackgroundResource(R.color.grey);
     }
 
 
