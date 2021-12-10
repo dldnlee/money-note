@@ -4,7 +4,6 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/24car/AndroidStudioProjects/moneynote/app/src/main/res/layout/fragment_calendar.xml" value="0.281767955801105" />
-        <entry key="..\:/Users/24car/AndroidStudioProjects/moneynote/app/src/main/res/layout/fragment_settings.xml" value="0.3359375" />
         <entry key="..\:/Users/24car/AndroidStudioProjects/moneynote/app/src/main/res/layout/fragment_settings.xml" value="0.22" />
         <entry key="..\:/Users/havyd/AndroidStudioProjects/MoneyNote/app/src/main/res/drawable/borderbutton_normal.xml" value="0.19166666666666668" />
         <entry key="..\:/Users/havyd/AndroidStudioProjects/MoneyNote/app/src/main/res/drawable/borderbutton_pressed.xml" value="0.24444444444444444" />
@@ -42,6 +41,8 @@
         <entry key="..\:/Users/havyd/AndroidStudioProjects/MoneyNote/app/src/main/res/layout/income_expense_container.xml" value="0.22" />
         <entry key="..\:/Users/havyd/AndroidStudioProjects/MoneyNote/app/src/main/res/menu/income_expense_items.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/havyd/AndroidStudioProjects/MoneyNote/app/src/main/res/menu/navigation_items.xml" value="0.25925925925925924" />
+        <entry key="..\:/Users/havyd/AndroidStudioProjects/MoneyNote/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.3828125" />
+        <entry key="..\:/Users/havyd/AndroidStudioProjects/MoneyNote/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.3828125" />
         <entry key="..\:/Users/inyou/AndroidStudioProjects/MonetNote/app/src/main/res/layout/activity_add_fund.xml" value="0.1" />
         <entry key="..\:/Users/inyou/AndroidStudioProjects/MonetNote/app/src/main/res/layout/activity_graph.xml" value="0.241635687732342" />
         <entry key="..\:/Users/inyou/AndroidStudioProjects/MonetNote/app/src/main/res/layout/activity_main.xml" value="0.1" />

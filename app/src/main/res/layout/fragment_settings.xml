@@ -1,16 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<<<<<<< HEAD
 
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-=======
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
->>>>>>> e1b86102a5c663d454f48122cca6a2d6e4b70d13
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragments.SettingsFragment">
-
 
     <TextView
         android:id="@+id/upload"
@@ -62,12 +56,12 @@
 
     <TextView
         android:id="@+id/weare"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="100dp"
         android:text="우리는 많은 사람이 가계부를 사용해 불필요한 지출을 막아 행복한 가계부 생활을 보내주기를 목표로
 높은 접근성과 편리성을 추구했습니다.
 통계 그래프를 지원해 보다 쉽게 자신의 수입, 혹은 지출액을 확인 가능하게 만들었습니다."
-        android:translationX="0dp"
+        android:translationX="50dp"
         android:translationY="310dp" />
 
 
