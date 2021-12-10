@@ -1,14 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragments.SettingsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+
     <TextView
+        android:id="@+id/upload"
+        android:layout_width="150dp"
+        android:layout_height="45dp"
+        android:text="Upload"
+        android:textSize="20dp"
+        android:textColor="@color/highlight"
+        android:translationX="50dp"
+        android:translationY="180dp" />
+
+
+    <TextView
+        android:id="@+id/appcolor"
+        android:layout_width="150dp"
+        android:layout_height="45dp"
+        android:text="App color"
+        android:textSize="20dp"
+        android:textColor="@color/highlight"
+        android:translationX="50dp"
+        android:translationY="30dp" />
+
+    <TextView
+        android:id="@+id/version"
+        android:layout_width="150dp"
+        android:layout_height="45dp"
+        android:text="Version"
+        android:textSize="20dp"
+        android:translationX="50dp"
+        android:translationY="420dp" />
+
+    <TextView
+        android:id="@+id/version0"
+        android:layout_width="150dp"
+        android:layout_height="45dp"
+        android:text="0.0"
+        android:translationX="50dp"
+        android:translationY="450dp" />
+
+    <TextView
+        android:id="@+id/about"
+        android:layout_width="150dp"
+        android:layout_height="45dp"
+        android:text="About"
+        android:textSize="20dp"
+        android:textColor="@color/highlight"
+        android:translationX="50dp"
+        android:translationY="280dp" />
+    <TextView
+        android:id="@+id/weare"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="100dp"
+        android:text="우리는 많은 사람이 가계부를 사용해 불필요한 지출을 막아 행복한 가계부 생활을 보내주기를 목표로
+높은 접근성과 편리성을 추구했습니다.
+통계 그래프를 지원해 보다 쉽게 자신의 수입, 혹은 지출액을 확인 가능하게 만들었습니다."
+        android:translationX="0dp"
+        android:translationY="310dp" />
+
+
+
+    <TextView
+        android:id="@+id/feedback"
+        android:layout_width="150dp"
+        android:layout_height="45dp"
+        android:text="Send Feedback"
+        android:textSize="20dp"
+        android:translationX="50dp"
+        android:translationY="490dp" />
+
+    <TextView
+        android:id="@+id/link"
+        android:layout_width="250dp"
+        android:layout_height="45dp"
+        android:text="https://github.com/money-note"
+        android:translationX="50dp"
+        android:translationY="520dp" />
+
+    <Switch
+        android:id="@+id/switch1"
+        android:layout_width="340dp"
+        android:layout_height="105dp"
+        android:text="wifi연결시 upload"
+        android:translationX="50dp"
+        android:translationY="180dp" />
+
+    <Button
+        android:id="@+id/radioButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="White"
+        android:onClick="goWhite"
+        android:textColor="@color/black"
+        android:backgroundTint="@color/white"
+        android:translationX="50dp"
+        android:translationY="60dp" />
+    <Button
+        android:id="@+id/radioButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Grey"
+        android:onClick="goGrey"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/grey"
+        android:translationX="50dp"
+        android:translationY="100dp" />
+
 
 </FrameLayout>
