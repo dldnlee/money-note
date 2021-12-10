@@ -17,6 +17,8 @@ import com.example.moneynote.MainActivity;
 import com.example.moneynote.R;
 import com.example.moneynote.fragments.CalendarFragment;
 import com.example.moneynote.models.UserDataModel;
+import com.example.moneynote.utils.EventDecorator;
+import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
 
 import java.util.ArrayList;
 
@@ -25,11 +27,13 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.ViewHo
     private ArrayList<UserDataModel> dataArray;
     private Context context;
     private Fragment fragment;
+    private MaterialCalendarView calendarView;
 
-    public CalendarAdapter(Context context, ArrayList<UserDataModel> array, ArrayList<UserDataModel> dataArray) {
+    public CalendarAdapter(Context context, ArrayList<UserDataModel> array, ArrayList<UserDataModel> dataArray, MaterialCalendarView calendarView) {
         this.array = array;
         this.dataArray = dataArray;
         this.context = context;
+        this.calendarView = calendarView;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
@@ -93,7 +97,8 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.ViewHo
                     for (int k=0; k<dataArray.size(); k++) {
                         if (dataArray.get(k).equals(array.get(position))) dataArray.remove(k);
                     }
-                    holder.itemView.setBackgroundColor(Color.parseColor("#FFFFFFFF"));
+                    holder.itemView.setVisibility(View.GONE);
+                    calendarView.invalidateDecorators();
                 }
             });
             AlertDialog dialog = alertDialog.create();

@@ -110,6 +110,7 @@
         app:layout_constraintTop_toBottomOf="@id/desc"
         android:layout_marginTop="30dp"
         android:text="저장"
+        android:backgroundTint="@color/main_color"
         android:textSize="15sp"
         android:background="@drawable/roundedbutton" />
 
@@ -124,6 +125,7 @@
         app:layout_constraintTop_toBottomOf="@id/desc"
         android:layout_marginTop="30dp"
         android:text="취소"
+        android:backgroundTint="@color/grey"
         android:textSize="15sp"
         android:background="@drawable/roundedbutton" />
 
