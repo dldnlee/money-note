@@ -23,6 +23,7 @@
         android:id="@+id/edit_date"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
+        android:enabled="false"
         app:layout_constraintStart_toEndOf="@id/date"
         app:layout_constraintTop_toTopOf="@id/date"
         app:layout_constraintBottom_toBottomOf="@id/date"
