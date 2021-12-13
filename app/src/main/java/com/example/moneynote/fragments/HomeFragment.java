@@ -50,10 +50,10 @@ public class HomeFragment extends Fragment {
 
         if (incomeNum > expenseNum) {
             binding.imageResult.setImageResource(R.drawable.smile_face);
-            binding.textResult.setText("적자입니다");
+            binding.textResult.setText("흑자입니다");
         } else if (incomeNum < expenseNum) {
             binding.imageResult.setImageResource(R.drawable.sad_face);
-            binding.textResult.setText("흑자입니다");
+            binding.textResult.setText("적자입니다");
         } else {
             binding.imageResult.setVisibility(View.INVISIBLE);
             binding.textResult.setVisibility(View.INVISIBLE);
